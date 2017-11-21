@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>assets/loadData3.png</file>
+        <file>assets/trainning.png</file>
+        <file>header/mediator.h</file>
+        <file>source/mediator.cpp</file>
+        <file>main.cpp</file>
+        <file>assets/knowledge5.png</file>
+        <file>assets/results2.png</file>
+        <file>qmlsource/MButton.qml</file>
+        <file>qmlsource/PredictionScreen.qml</file>
+        <file>qmlsource/TrainningScreen.qml</file>
+        <file>plots/data.jpg</file>
+        <file>plots/data_test.jpg</file>
+        <file>plots/trainningPlot.png</file>
+        <file>assets/log.png</file>
+        <file>qmlsource/MLogBox.qml</file>
+        <file>assets/close.png</file>
+        <file>assets/pdf-file.png</file>
+        <file>assets/predict.png</file>
+    </qresource>
+</RCC>
