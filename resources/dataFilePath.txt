@@ -1,2 +1,3 @@
-/home/geymerson/Documents/ecom_089_2017_1/datasets/voiceToPredict1.csv
+/home/geymerson/Documents/ecom_089_2017_1/datasets/voiceTrainningData.csv
+
 

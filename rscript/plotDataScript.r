@@ -7,6 +7,6 @@ setwd("/home/geymerson/Documents/ecom_089_2017_1/classifierProject/rscript/")
 rd <- read.table("../resources/dataFilePath.txt", header = FALSE)
 data <- read.csv(as.character(rd$V1))
 
-ggplot(data, aes(x = label, fill = label)) +
+temp <- ggplot(data, aes(x = label, fill = label)) +
   geom_bar()
 ggsave("../plots/data.jpg")

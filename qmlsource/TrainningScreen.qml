@@ -127,6 +127,7 @@ Rectangle {
                         height: 600
                         anchors.horizontalCenter: parent.horizontalCenter
                         visible: false
+                        cache: false
                     }
                 }
             }
@@ -159,7 +160,8 @@ Rectangle {
                         width: parent.width * 0.95
                         height: 600
                         visible: false
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        cache: false
+                        anchors.horizontalCenter: parent.horizontalCenter                        
                     }
                 }
 
@@ -218,6 +220,7 @@ Rectangle {
                         height: 600
                         visible: false
                         anchors.horizontalCenter: parent.horizontalCenter
+                        cache: false
                     }
                 }
 
@@ -241,7 +244,7 @@ Rectangle {
                         onClicked: {
                             logbox.title = "Your model evaluation results"
                             logbox.text = mediator.eval_Model()
-                            logbox.visible = true
+                            logbox.visible = true                            
                         }
                     }
                 }
@@ -301,32 +304,17 @@ Rectangle {
         id: mediator
         property int functionCallType: 0
         onTrainningFinished: {
-            startTrainningButton.opacity = 1.0
-            startTrainningButton.visible = true            
-            trainningResultsPlot.source = "../plots/trainningPlot.png"
-            trainningResultsPlot.visible = true
-            trainningResults.height = 120 + trainningResultsPlot.height
-
-            modelEvaluationPlot.source = "../plots/data_test.jpg"
-            modelEvaluationPlot.visible = true
-            modelEvaluation.height = 120 + modelEvaluationPlot.height
-
-            logButton.enabled = true
-            logButton.opacity = 1.0
-
-            evalLogButton.enabled = true
-            evalLogButton.opacity = 1.0
-
-            modelReady = true
-            startButtonText.text = "Start trainning"           
+            functionCallType = 2
+            mediatorTimer.interval = 500
             console.log("Trainning has been finished")
+            mediatorTimer.start()
         }
 
         onPlotingFinished: {
-            dataChart.source = "../plots/data.jpg"
-            dataOverview.height = 120 + dataChart.height
-            dataChart.visible = true
+            functionCallType = 3
+            mediatorTimer.interval = 500
             console.log("Data ploting has been finished")
+            mediatorTimer.start()
         }
     }
 
@@ -351,7 +339,31 @@ Rectangle {
             }
             else if(mediator.functionCallType == 1) {
                 mediator.startTrainning()
-            }         
+            }
+            else if(mediator.functionCallType == 2) {
+                startTrainningButton.opacity = 1.0
+                startTrainningButton.visible = true
+                trainningResultsPlot.visible = true
+                trainningResults.height = 120 + trainningResultsPlot.height
+                modelEvaluationPlot.visible = true
+                modelEvaluation.height = 120 + modelEvaluationPlot.height
+                logButton.enabled = true
+                logButton.opacity = 1.0
+                evalLogButton.enabled = true
+                evalLogButton.opacity = 1.0
+                modelReady = true
+                trainningResultsPlot.source = ""
+                trainningResultsPlot.source = "../plots/trainningPlot.png"
+                modelEvaluationPlot.source = ""
+                modelEvaluationPlot.source = "../plots/data_test.jpg"
+                startButtonText.text = "Start trainning"
+            }
+            else if(mediator.functionCallType == 3) {
+                dataChart.source = ""
+                dataChart.source = "../plots/data.jpg"
+                dataOverview.height = 120 + dataChart.height
+                dataChart.visible = true
+            }
         }                    
     }
 }
