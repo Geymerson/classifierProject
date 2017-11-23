@@ -88,7 +88,7 @@ Rectangle {
             }
 
             //Rectangle for viewing
-            //the selected dataset
+            //the prediction results
             Rectangle {
                 id: dataPredictionOverview
                 width: flickArea.width * 0.8
@@ -116,17 +116,31 @@ Rectangle {
                               " for generating the prediction model."
                         anchors.left: parent.left
                         anchors.leftMargin: myPredictionDataSet.width * 0.02
-                    }
+                    }                    
 
-                    Image {
-                        id: dataPredictionChart
-                        width: parent.width * 0.95
+                    GridView {
+                        id: view
+                        width: 470
                         height: 600
                         anchors.horizontalCenter: parent.horizontalCenter
+                        clip: true
+                        cellWidth: width/3
+                        cellHeight: 100
+                        delegate: numberDelegate
                         visible: false
                     }
                 }
             }
+        }
+    }
+
+
+    Component {
+        id: numberDelegate
+
+        MGridCell {
+            elementFieldText: (index + 1) + "º Prediction"
+            predictionFieldText: predictionMediator.predictionAt(index)
         }
     }
 
@@ -135,7 +149,11 @@ Rectangle {
         onPredictFinished: {
             startPredictionButton.visible = true
             startPredictionButton.opacity = 1.0            
-            startPredictionButtonText.text = "Generate predictions"            
+            startPredictionButtonText.text = "Generate predictions"
+            loadPredictions()
+            view.model = count() - 1
+            view.visible = true
+            dataPredictionOverview.height = view.height*1.2
         }
     }
 

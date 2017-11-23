@@ -25,7 +25,7 @@ public:
     Q_INVOKABLE void createDataPlot();
     Q_INVOKABLE bool saveDataPathToFile();
     Q_INVOKABLE int count() const;
-    void loadPredictions();
+    Q_INVOKABLE void loadPredictions();
     void log(const QString &filename);
     void runRScript(const QString &script);    
 

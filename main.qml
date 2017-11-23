@@ -18,6 +18,7 @@ Window {
     maximumWidth: width
     minimumWidth: width
 
+
     Item {
         id: mainContainer
         anchors.fill: parent
@@ -72,9 +73,8 @@ Window {
                     opacity = 1.0
                     trainningScreen.visible = false
                     predictionScreen.visible = true
-                }                
-            }            
-        }       
+                }
+            }
+        }
     }
-
 }

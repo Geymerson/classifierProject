@@ -1,7 +1,7 @@
 /**
     IA2 Project: This application uses
     the OneR machine learning algorithm to
-    identify male and female genres by voice
+    identify male and female gender by voice
 
     @author: Geymerson Ramos
     email: geymerson@ic.ufal.br
