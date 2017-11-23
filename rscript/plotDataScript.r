@@ -4,7 +4,7 @@ if(!require(ggplot2)){
 }
 
 setwd("/home/geymerson/Documents/ecom_089_2017_1/classifierProject/rscript/")
-rd <- read.table("../datasets/dataFilePath.txt", header = FALSE)
+rd <- read.table("../resources/dataFilePath.txt", header = FALSE)
 data <- read.csv(as.character(rd$V1))
 
 ggplot(data, aes(x = label, fill = label)) +

@@ -6,7 +6,7 @@ if(!require(OneR)){
 setwd("/home/geymerson/Documents/ecom_089_2017_1/classifierProject/rscript/")
 
 #Get the input data path
-rd <- read.table("../datasets/dataFilePath.txt", header = FALSE)
+rd <- read.table("../resources/dataFilePath.txt", header = FALSE)
 data <- read.csv(as.character(rd$V1))
 
 # Load the trainning model

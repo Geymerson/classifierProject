@@ -29,7 +29,7 @@ QByteArray Mediator::filePath() const {
 //Save the informed file path to into a
 //accessible file
 bool Mediator::saveDataPathToFile() {    
-    QFile file("../classifierProject/datasets/dataFilePath.txt");
+    QFile file("../classifierProject/resources/dataFilePath.txt");
     if(!file.open( QIODevice::WriteOnly | QIODevice::Text))
         return false;
     m_dataFilePath.append('\n');
