@@ -30,7 +30,7 @@ Item {
             width: 150
             height: 50
             border.color: "black"
-            color: "#7800FF"
+            color: "white"
 
             Text {
                 id: predictionField
